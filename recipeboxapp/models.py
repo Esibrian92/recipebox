@@ -3,14 +3,19 @@ from django.utils import timezone
 # Create your models here.
 
 
-class Author(...):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    byline = models.TextField()
+class Author(models.Model):
+    name = models.CharField(max_length=50)
+    byline = models.CharField(max_length=100, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
 
-class Article(...):
+class Recipe(models.Model):
     title = models.CharField(max_length=100)
     body = models.TextField()
-    author = models.ForeignKey(...)
-    time_created = models.DateTimeField(timezone.now)
+    time_created = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
