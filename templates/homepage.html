@@ -1,5 +1,11 @@
-{% for attribute in recipe%}
+<h1>Welcome Home</h1>
 
-<h2><a href="/recipe_details/">{{ attribute.title }}<a></h2>
+{% for attribute in recipes %}
+<h2><a href="/recipe_details/{{ attribute.id }}/">{{ attribute.title }}</a></h2>
+<h4>{{attribute.time_created}}</h4>
+-------------------------------------------------------
 
 {% endfor %}
+
+
+<!-- <h3>by <a href="/author_details/{{ attribute.author}}/">{{ attribute.author }}</a></h3> -->
