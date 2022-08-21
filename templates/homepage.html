@@ -1,7 +1,5 @@
 {% for attribute in recipe%}
 
-<h2>{{ attribute.title }}</h2>
-<h3>{{ attribute.body }}</h3>
-<h4> Posted {{ attribute.time_created }}</h4>
+<h2><a href="/recipe_details/">{{ attribute.title }}<a></h2>
 
 {% endfor %}
