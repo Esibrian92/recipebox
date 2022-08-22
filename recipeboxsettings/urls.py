@@ -20,12 +20,12 @@ import recipeboxapp
 from recipeboxapp.views import index
 from recipeboxapp.views import recipe_details
 from recipeboxapp.views import author_details
-from recipeboxapp.views import recipes
+# from recipeboxapp.views import recipes
 
 urlpatterns = [
     path("", views.index,),
     path("recipe_details/<int:recipe_id>/", views.recipe_details),
     path("author_details/<int:author_id>/", views.author_details),
-    path("recipes/<int:author_id>/", views.recipes),
+    # path("recipes/<int:author_id>/", views.recipes),
     path('admin/', admin.site.urls),
 ]

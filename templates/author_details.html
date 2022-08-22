@@ -4,5 +4,10 @@
 <h3>Bio:</h3>
 <h3>{{ author.bio }}</h3>
 
+<h3>More recipes by {{author}}</h3>
 
-<h2><a href="/more_recipes/{{ author_id }}">More Recipes</a></h2>
+{% for attribute in recipes %}
+
+<h3><a href="/recipe_details/{{ attribute.id }}/">{{attribute.title}}</a></h3>
+
+{% endfor %}

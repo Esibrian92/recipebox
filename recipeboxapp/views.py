@@ -18,10 +18,11 @@ def recipe_details(request, recipe_id: int):
 
 def author_details(request, author_id: int):
     current_author = Author.objects.get(id=author_id)
-    return render(request, "author_details.html", {'author': current_author})
+    recipes = Recipe.objects.filter(author=current_author)
+    return render(request, "author_details.html", {'author': current_author, 'recipes': recipes})
 
 
-def recipes(request, author_id: int):
-    current_author = Author.objects.get(id=author_id)
-    author_recipes = Recipe.objects.filter(author=author_id)
-    return render(request, "recipes.html", {'author': current_author, 'recipe': author_recipes})
+# def recipes(request, author_id: int):
+#     this_author = Author.objects.get(id=author_id)
+#     recipes = Recipe.objects.filter(author=this_author)
+#     return render(request, "recipes.html", {'this_author': this_author}, {'recipes': recipes})
